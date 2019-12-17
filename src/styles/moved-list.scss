@@ -1,0 +1,19 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  column-gap: 10px;
+  margin: 10px 0;
+}
+.move-back {
+  width: 20px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  &::after {
+    position: absolute;
+    content: '-';
+    top: 0;
+    left: 0;
+    font-size: 30px;
+  }
+}
