@@ -32,7 +32,7 @@
             {{ item.action === 'add' ? 'Добавление' : 'Удаление'}}
           </td>
           <td>
-            {{ item.date }}
+            {{ item.date | getDate}}
           </td>
         </tr>
       </tbody>
@@ -41,7 +41,15 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
+  filters: {
+    getDate(date) {
+      let d = moment(date)
+      return moment(d).format('DD.MM.YYYY')
+    }
+  },
   data() {
     return {
       historyList: []
