@@ -8,7 +8,7 @@
       <div class="item">
         {{ item }}
       </div>
-      <div @click="moveItem(index)" class="move-button" />
+      <div @click="moveItem(index, item)" class="move-button" />
     </div>
   </div>
 </template>
@@ -24,9 +24,10 @@ export default {
     this.$store.dispatch('list/getList')
   },
   methods: {
-    moveItem(index) {
+    moveItem(index, item) {
       console.log(index)
       this.$store.dispatch('list/moveItem', index)
+      this.$store.commit('history/ADD_EVENT', item)
     }
   }
 }

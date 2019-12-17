@@ -7,7 +7,7 @@
       <div class="item">
         {{ item }}
       </div>
-      <div class="move-back" @click="moveBack(index)"></div>
+      <div class="move-back" @click="moveBack(index, item)"></div>
     </div>
   </div>
 </template>
@@ -20,8 +20,9 @@ export default {
     }
   },
   methods: {
-    moveBack(index) {
+    moveBack(index, item) {
       this.$store.dispatch('list/moveBack', index)
+      this.$store.commit('history/REMOVE_EVENT', item)
     }
   },
 }
