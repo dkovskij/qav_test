@@ -1,0 +1,13 @@
+.buttons-wrap {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(58, 97, 58);
+    color: #fff;
+  }
+}

@@ -1,0 +1,9 @@
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+}

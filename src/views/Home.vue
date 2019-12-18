@@ -1,18 +1,35 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div class="wrap">
+  <div class="lists">
+    <ElementsList></ElementsList>
+    <MovedList></MovedList>
+  </div>
+  <Buttons></Buttons>
+  <ErrorMessage v-if="isError"></ErrorMessage>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import ElementsList from '@/components/ElementsList/ElementsList'
+import MovedList from '@/components/MovedList/MovedList'
+import Buttons from '@/components/Buttons/Buttons'
+import ErrorMessage from '@/components/Messages/ErrorMessage'
 
 export default {
-  name: 'home',
   components: {
-    HelloWorld
+    ElementsList,
+    MovedList,
+    Buttons,
+    ErrorMessage
+  },
+  computed: {
+    isError() {
+      return this.$store.state.isError
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  @import '@/styles/home.scss';
+</style>
