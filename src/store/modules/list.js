@@ -2,7 +2,7 @@ import { getList } from "@/api/list"
 import { SET_LIST, SET_LOADING, MOVE_ITEM, MOVE_BACK, SORT_LIST, SAVE_ORIGINAL_LIST, SET_QUERY } from '@/store/mutations'
 
 const state = {
-  isLoading: false,
+  isLoading: true,
   list: [
     {
       id: 25,
@@ -86,8 +86,16 @@ const mutations = {
 const actions = {
   async getList({ commit }) {
     commit('SET_LOADING', true)
-    const res = await getList(3)
-    commit('SET_LIST', res.results)
+    let payload = {
+      token: "fORM-fAa0fo_wzbUz2eMmg",
+      data: {
+        id: 'numberInt|1,100',
+        name: 'name',
+        _repeat: 100
+      }
+  };
+    const res = await getList(payload)
+    commit('SET_LIST', res)
     commit('SET_LOADING', false)
   },
   moveItem({ commit }, index) {

@@ -17,7 +17,14 @@ const store = new Vuex.Store({
   modules,
   getters,
   state: {
-    token: 'DN7K-IQOR-D0WJ-OZY2'
+    // token RandomAPI
+    token: 'DN7K-IQOR-D0WJ-OZY2',
+    isError: false
+  },
+  mutations: {
+    SET_ERROR: (state, error) => {
+      state.isError = error
+    }
   }
 })
 

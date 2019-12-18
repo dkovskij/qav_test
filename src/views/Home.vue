@@ -5,6 +5,7 @@
     <MovedList></MovedList>
   </div>
   <Buttons></Buttons>
+  <ErrorMessage v-if="isError"></ErrorMessage>
   </div>
 </template>
 
@@ -12,12 +13,19 @@
 import ElementsList from '@/components/ElementsList/ElementsList'
 import MovedList from '@/components/MovedList/MovedList'
 import Buttons from '@/components/Buttons/Buttons'
+import ErrorMessage from '@/components/Messages/ErrorMessage'
 
 export default {
   components: {
     ElementsList,
     MovedList,
-    Buttons
+    Buttons,
+    ErrorMessage
+  },
+  computed: {
+    isError() {
+      return this.$store.state.isError
+    }
   }
 }
 </script>
