@@ -1,32 +1,48 @@
 <template>
   <div class="elements-list">
     <div
-      v-for="(item, index) in list"
+      v-for="(item, index) in filteredList"
       :key="'list' + index"
       class="wrap"
     >
       <div class="item">
         {{ item }}
       </div>
-      <div @click="moveItem(index, item)" class="move-button" />
+      <div @click="moveItem(item)" class="move-button" />
+    </div>
+    <div class="input">
+      <input v-model="query" type="text">
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
+  data() {
+    return {
+      localList: [],
+    }
+  },
   computed: {
-    list() {
-      return this.$store.state.list.list
+    query: {
+      get() {
+        return this.$store.state.list.query
+      },
+      set(val) {
+        this.$store.state.list.query = val
+      }
+    },
+    filteredList() {
+      return this.$store.getters.filteredList
     }
   },
   created() {
-    this.$store.dispatch('list/getList')
+    // this.$store.dispatch('list/getList')
   },
   methods: {
-    moveItem(index, item) {
-      console.log(index)
-      this.$store.dispatch('list/moveItem', index)
+    moveItem(item) {
+      this.$store.dispatch('list/moveItem', item)
       this.$store.commit('history/ADD_EVENT', item)
     }
   }

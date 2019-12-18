@@ -8,6 +8,7 @@
   width: 20px;
   height: 30px;
   position: relative;
+  justify-self: end;
   cursor: pointer;
   &::after {
     position: absolute;
@@ -15,5 +16,15 @@
     top: 0;
     left: 0;
     font-size: 30px;
+  }
+}
+.input {
+  input {
+    width: calc(100% - 10px);
+    border-radius: 10px;
+    height: 30px;
+    padding-left: 10px;
+    outline: none;
+    border: 1px solid #5e5e5e;
   }
 }
