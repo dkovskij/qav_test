@@ -1,27 +1,46 @@
 import { getList } from "@/api/list"
-// import { cloneDeep } from 'lodash'
 import { SET_LIST, SET_LOADING, MOVE_ITEM, MOVE_BACK, SORT_LIST, SAVE_ORIGINAL_LIST, SET_QUERY } from '@/store/mutations'
 
 const state = {
   isLoading: false,
   list: [
     {
+      id: 25,
+      name: 'aa aa aa cc',
+      items: [
+        {
+          id: 45,
+          name: 'bba aab'
+        }
+      ]
+    },
+    {
       id: 1,
-      name: 'aaa',
+      name: 'aa aa cc',
       items: [
         {
           id: 23,
-          name: 'bbb'
+          name: 'bb bb ba'
         }
       ]
     },
     {
       id: 5,
-      name: 'sss',
+      name: 'ss sf ff',
       items: [
         {
           id: 55,
-          name: 'vvv'
+          name: 'vv vv vz'
+        }
+      ]
+    },
+    {
+      id: 35,
+      name: 'ss ss sf',
+      items: [
+        {
+          id: 15,
+          name: 'ff ff fs'
         }
       ]
     },
